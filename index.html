@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOKD-COM+ - Électronique & Électroménager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+        
+        .dark-mode .bg-white {
+            background-color: #2d3748 !important;
+            color: #f7fafc !important;
+        }
+        
+        .dark-mode .text-gray-800 {
+            color: #f7fafc !important;
+        }
+        
+        .dark-mode .border-gray-200 {
+            border-color: #4a5568 !important;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm dark-mode">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-bolt text-blue-600 text-2xl"></i>
+                <h1 class="text-xl font-bold text-gray-800">SOKD-COM+</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-800 hover:text-blue-600 transition">Accueil</a>
+                <a href="#about" class="text-gray-800 hover:text-blue-600 transition">À propos</a>
+                <a href="#products" class="text-gray-800 hover:text-blue-600 transition">Produits</a>
+                <a href="#services" class="text-gray-800 hover:text-blue-600 transition">Services</a>
+                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition">Contact</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="text-gray-800 hover:text-blue-600">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
+                    <i class="fas fa-shopping-cart mr-2"></i> Panier
+                </button>
+                <button class="md:hidden text-gray-800" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-white dark-mode py-4 px-4" id="mobile-menu">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-gray-800 hover:text-blue-600 transition">Accueil</a>
+                <a href="#about" class="text-gray-800 hover:text-blue-600 transition">À propos</a>
+                <a href="#products" class="text-gray-800 hover:text-blue-600 transition">Produits</a>
+                <a href="#services" class="text-gray-800 hover:text-blue-600 transition">Services</a>
+                <a href="#contact" class="text-gray-800 hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center justify-center text-center text-white animate-fadeIn">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">L'électronique à portée de main</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Découvrez notre sélection premium d'appareils électroniques et électroménagers pour votre maison et votre bureau.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#products" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md text-lg font-medium transition">Nos produits</a>
+                <a href="#contact" class="bg-transparent hover:bg-white hover:text-gray-900 text-white px-8 py-3 rounded-md text-lg font-medium border-2 border-white transition">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">À propos de SOKD-COM+</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Notre équipe" class="rounded-lg shadow-xl w-full">
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Notre histoire et notre mission</h3>
+                    <p class="text-gray-600 mb-6">Fondée en 2015, SOKD-COM+ est née de la passion pour la technologie et du désir de rendre les appareils électroniques de qualité accessibles à tous.</p>
+                    <p class="text-gray-600 mb-6">Notre mission est de fournir des produits innovants, fiables et abordables, accompagnés d'un service client exceptionnel.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-shield-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Garantie étendue</h4>
+                                <p class="text-gray-600 text-sm">Sur tous nos produits</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-truck text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Livraison rapide</h4>
+                                <p class="text-gray-600 text-sm">Dans toute la région</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-headset text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Support 24/7</h4>
+                                <p class="text-gray-600 text-sm">Assistance technique</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-undo text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">Retours faciles</h4>
+                                <p class="text-gray-600 text-sm">30 jours satisfait ou remboursé</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Produits</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Découvrez notre sélection de produits électroniques et électroménagers de qualité.</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex justify-center mb-12">
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md">Tous</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Électronique</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Électroménager</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Accessoires</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Promotions</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Smartphone" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-20%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Smartphone Premium X9</h3>
+                        <p class="text-gray-600 text-sm mb-3">6.7" AMOLED, 128GB, Triple caméra</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">799€</span>
+                            <span class="text-sm text-gray-500 line-through">999€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Laptop" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Laptop Pro 15"</h3>
+                        <p class="text-gray-600 text-sm mb-3">i7 11th Gen, 16GB RAM, 512GB SSD</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">1299€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="TV" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Nouveau</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">TV 4K UHD 55"</h3>
+                        <p class="text-gray-600 text-sm mb-3">Smart TV, HDR10+, Dolby Vision</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">899€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Refrigerator" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Réfrigérateur Side-by-Side</h3>
+                        <p class="text-gray-600 text-sm mb-3">600L, No Frost, Distribution d'eau</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">1499€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1578849278619-e73507e7d699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Washing Machine" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Lave-linge 10kg</h3>
+                        <p class="text-gray-600 text-sm mb-3">Classe A+++, 1400 tr/min, Silencieux</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">699€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Headphones" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">-15%</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Casque sans fil Pro</h3>
+                        <p class="text-gray-600 text-sm mb-3">Réduction de bruit, 30h autonomie</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">249€</span>
+                            <span class="text-sm text-gray-500 line-through">299€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600080979524-8b54f0b86bc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Smart Watch" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Montre connectée Sport</h3>
+                        <p class="text-gray-600 text-sm mb-3">Suivi santé, GPS, 7 jours batterie</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">199€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card bg-white dark-mode rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Camera" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Nouveau</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-gray-800 mb-1">Appareil photo Mirrorless</h3>
+                        <p class="text-gray-600 text-sm mb-3">24MP, 4K, Objectif 15-45mm</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-gray-800">899€</span>
+                        </div>
+                        <button class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md transition">
+                            <i class="fas fa-cart-plus mr-2"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-md transition">
+                    Voir tous les produits
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Nous offrons bien plus que des produits - découvrez nos services premium.</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white dark-mode p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Installation Professionnelle</h3>
+                    <p class="text-gray-600">Nos techniciens certifiés installent et configurent vos appareils pour un fonctionnement optimal.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white dark-mode p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Protection Étendue</h3>
+                    <p class="text-gray-600">Protégez votre investissement avec nos plans de garantie prolongée couvrant les réparations et remplacements.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white dark-mode p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-recycle text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Recyclage Éco-responsable</h3>
+                    <p class="text-gray-600">Nous reprenons vos anciens appareils pour un recyclage respectueux de l'environnement.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white dark-mode p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Formation Produit</h3>
+                    <p class="text-gray-600">Apprenez à maîtriser toutes les fonctionnalités de vos nouveaux appareils avec nos sessions de formation.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-white dark-mode p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-home text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Solutions Domotiques</h3>
+                    <p class="text-gray-600">Transformez votre maison en maison intelligente avec nos solutions domotiques intégrées.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-white dark-mode p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Support Premium</h3>
+                    <p class="text-gray-600">Accédez à notre équipe de support technique dédiée 24h/24 pour résoudre tous vos problèmes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Témoignages Clients</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Ce que nos clients disent de nous</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 dark-mode p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sophie Martin</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"J'ai acheté mon réfrigérateur chez SOKD-COM+ et je suis très satisfaite. L'installation était rapide et professionnelle. Le produit est de très bonne qualité et le service client est réactif."</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 dark-mode p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Thomas Dubois</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Excellent service après-vente ! Mon lave-linge avait un problème après 8 mois d'utilisation. Ils sont venus le réparer sous 48h sans frais supplémentaires grâce à la garantie étendue."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 dark-mode p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Amélie Leroy</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Le smartphone que j'ai acheté est parfait, mais ce qui m'a le plus impressionnée c'est la formation offerte pour bien l'utiliser. Je recommande vivement SOKD-COM+ pour leur expertise et leur professionnalisme."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-20 bg-gray-50 dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Projets</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Découvrez nos réalisations pour des clients particuliers et professionnels</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white dark-mode rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055827ea415?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Home Automation" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Maison connectée à Lyon</h3>
+                        <p class="text-gray-600 mb-4">Installation complète d'un système domotique pour une maison de 150m² avec contrôle à distance de l'éclairage, chauffage et sécurité.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Domotique</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Sécurité</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Éclairage intelligent</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white dark-mode rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f198968f5359?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Office Setup" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Espace de coworking à Paris</h3>
+                        <p class="text-gray-600 mb-4">Équipement complet d'un espace de travail partagé avec solutions audiovisuelles, réseau performant et mobilier connecté.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Bureautique</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Réseau</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Audiovisuel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition">
+                    Voir tous nos projets
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Foire aux Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Trouvez les réponses aux questions les plus fréquentes</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="faq-question flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+                        <span>Quels sont vos délais de livraison ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer mt-4 text-gray-600 hidden">
+                        <p>Nos délais de livraison varient selon le produit et votre localisation. Pour les produits en stock, la livraison s'effectue généralement sous 2 à 5 jours ouvrés. Les produits sur commande peuvent prendre 7 à 14 jours. Vous recevrez un email de confirmation avec un suivi de livraison dès que votre commande sera expédiée.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="faq-question flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+                        <span>Quelle est votre politique de retour ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer mt-4 text-gray-600 hidden">
+                        <p>Nous offrons une politique de retour sans tracas de 30 jours. Si vous n'êtes pas satisfait de votre achat pour quelque raison que ce soit, vous pouvez retourner le produit dans son emballage d'origine, non utilisé et en parfait état pour un remboursement complet. Les frais de retour sont à votre charge, sauf en cas de produit défectueux ou d'erreur de notre part.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="faq-question flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+                        <span>Comment puis-je bénéficier de la garantie ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer mt-4 text-gray-600 hidden">
+                        <p>Tous nos produits bénéficient d'une garantie constructeur standard (généralement 1 à 2 ans selon le produit). Vous pouvez souscrire à notre garantie étendue au moment de l'achat. Pour faire valoir votre garantie, contactez simplement notre service client avec votre numéro de commande et une description du problème. Nous organiserons la réparation ou le remplacement selon les termes de la garantie.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="faq-question flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+                        <span>Proposez-vous des solutions de financement ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer mt-4 text-gray-600 hidden">
+                        <p>Oui, nous proposons plusieurs options de financement pour vous aider à acheter maintenant et payer plus tard. Vous pouvez choisir le paiement en 3 ou 4 fois sans frais pour les commandes de plus de 300€, ou opter pour un crédit à taux zéro sur 6 à 12 mois selon votre éligibilité. Ces options sont disponibles lors du passage de commande sur notre site.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="faq-question flex justify-between items-center w-full text-left font-medium text-gray-800 hover:text-blue-600 focus:outline-none">
+                        <span>Comment puis-je suivre ma commande ?</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer mt-4 text-gray-600 hidden">
+                        <p>Dès que votre commande est expédiée, vous recevez un email de confirmation contenant un numéro de suivi et un lien vers notre système de suivi des commandes. Vous pouvez également vous connecter à votre compte client sur notre site pour voir l'état de votre commande en temps réel. Pour toute question concernant votre livraison, notre service client est disponible pour vous aider.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark-mode">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Nous sommes à votre disposition pour répondre à toutes vos questions</p>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+                <div class="lg:w-1/2">
+                    <form id="contact-form" action="https://formspree.io/f/seidinaomarkonatedione@gmail.com" method="POST" class="bg-white dark-mode p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (optionnel)</label>
+                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Sujet</label>
+                            <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="question">Question générale</option>
+                                <option value="order">Commande</option>
+                                <option value="support">Support technique</option>
+                                <option value="warranty">Garantie</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md transition">
+                            Envoyer le message
+                        </button>
+                        
+                        <div id="form-success" class="mt-4 p-4 bg-green-100 text-green-700 rounded-md hidden">
+                            Votre message a bien été envoyé ! Nous vous répondrons dans les plus brefs délais.
+                        </div>
+                        
+                        <div id="form-error" class="mt-4 p-4 bg-red-100 text-red-700 rounded-md hidden">
+                            Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer plus tard.
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white dark-mode p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold text-gray-800 mb-6">Nos coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Adresse</h4>
+                                    <p class="text-gray-600">123 Avenue de la Technologie, 75015 Paris, France</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Téléphone</h4>
+                                    <p class="text-gray-600">+33 1 23 45 67 89</p>
+                                    <p class="text-gray-600 text-sm">Lundi-Vendredi: 9h-18h</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Email</h4>
+                                    <p class="text-gray-600">contact@sokdcom-plus.com</p>
+                                    <p class="text-gray-600 text-sm">Réponse sous 24h</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-store text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-1">Magasin physique</h4>
+                                    <p class="text-gray-600">Ouvert du lundi au samedi de 10h à 19h</p>
+                                    <p class="text-gray-600 text-sm">Service de retrait en magasin disponible</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Suivez-nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-100 hover:bg-blue-600 hover:text-white p-3 rounded-full text-gray-800 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-blue-400 hover:text-white p-3 rounded-full text-gray-800 transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-pink-600 hover:text-white p-3 rounded-full text-gray-800 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-red-600 hover:text-white p-3 rounded-full text-gray-800 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="bg-gray-100 hover:bg-blue-700 hover:text-white p-3 rounded-full text-gray-800 transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="bg-gray-100 dark-mode">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937595!2d2.292292615638511!3d48.85837007928746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e535e3%3A0x3149d3a1a2a15f6!2sTour%20Eiffel!5e0!3m2!1sfr!2sfr!4v1623252616143!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="dark:grayscale dark:opacity-80"></iframe>
+    </div>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">Abonnez-vous à notre newsletter</h2>
+            <p class="max-w-2xl mx-auto mb-8">Recevez les dernières nouveautés, offres exclusives et conseils d'experts directement dans votre boîte mail.</p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+                <input type="email" placeholder="Votre email" required class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <button type="submit" class="bg-white hover:bg-gray-100 text-blue-600 font-medium px-6 py-3 rounded-md transition">
+                    S'abonner
+                </button>
+            </form>
+            
+            <p class="mt-4 text-sm opacity-80">Nous ne partagerons jamais votre email avec des tiers.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-bolt text-blue-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold">SOKD-COM+</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Votre partenaire en électronique et électroménager depuis 2015.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">À propos</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white transition">Produits</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Catégories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Téléphones & Tablettes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ordinateurs & Accessoires</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">TV & Home Cinéma</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Électroménager</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Accessoires</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Informations</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mentions légales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Politique de confidentialité</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Conditions générales</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2023 SOKD-COM+. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Visa" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Mastercard" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="PayPal" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Apple Pay" class="h-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('hidden');
+                
+                // Rotate icon
+                icon.classList.toggle('rotate-180');
+                
+                // Close other open answers
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.nextElementSibling.classList.add('hidden');
+                        q.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+        
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Change icon based on current theme
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            
+            // Save preference to localStorage
+            const isDark = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDark);
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark-mode');
+            themeToggle.querySelector('i').classList.remove('fa-moon');
+            themeToggle.querySelector('i').classList.add('fa-sun');
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        contactForm.reset();
+                        formSuccess.classList.remove('hidden');
+                        formError.classList.add('hidden');
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            formSuccess.classList.add('hidden');
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    formError.classList.remove('hidden');
+                    formSuccess.classList.add('hidden');
+                    
+                    // Hide error message after 5 seconds
+                    setTimeout(() => {
+                        formError.classList.add('hidden');
+                    }, 5000);
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
